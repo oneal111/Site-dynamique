@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' integrity='sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==' crossorigin='anonymous'/>
+    <link rel="stylesheet" href="style.css">
+    <title>Jeu de dé - site dynamique</title>
+</head>
+<body>
+
+    <header>
+
+        <div class="btns">
+            <button class="btn-rule" aria-label="Règle">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p>Règle</p>
+            </button>
+            <button class="btn-new-game" aria-label="Nouvelle partie">
+                <i class="fas fa-redo-alt"></i>
+                <p>Nouvelle partie</p>
+            </button>
+        </div>
+        
+    </header>
+
+    <main>
+        <div class="rules-container" style="display: none;">
+            <div class="rules">
+                <p>Tentez d'obtenir un score global de 100! Pour cela lancez le dé 
+                    pour faire augmentez le score du round mais attention si le dé indique 1 
+                    le score du round se reinitialise à 0! Pensez à utilisez le bouton Garder 
+                    pour ajouter le score du round à votre score global!</p>
+                <button class="close-rules">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h2>Entrez votre nom</h2>
+            <form id="name-choice">
+                <label for="name-p1">Joueur 1</label>
+                <input id="name-p1" type="text" required>
+    
+                <label for="name-p2">Joueur 2</label>
+                <input id="name-p2" type="text" required>
+
+                <button id="check-player-name" type="submit">Valider</button>
+            </form>
+        </div>
+
+        <div class="game-board">
+            <div class="player player-1">
+                <h3 class="player-name" id="name-player-1">Joueur 1</h3>
+                <div class="score">
+                    <h4>Score global</h4>
+                    <p class="player-global-score" id="player-1-global-score">0</p>
+                </div>
+            </div>
+
+            <div class="action-game">
+                <h4>Score du round</h4>
+                <p class="player-temp-score">0</p>
+                <div class = "scene">
+                    <div class="cube">
+                        <div class="cube-face cube-face-1">
+                            <img class="img-face" src="images/Dé-1.svg" alt="image de poison">
+                        </div>
+                        <div class="cube-face cube-face-2">
+                            <img class="img-face" src="images/Dé-2.svg">
+                        </div>
+                        <div class="cube-face cube-face-3">
+                            <img class="img-face" src="images/Dé-3.svg">
+                        </div>
+                        <div class="cube-face cube-face-4">
+                            <img class="img-face" src="images/Dé-4.svg">
+                        </div>
+                        <div class="cube-face cube-face-5">
+                            <img class="img-face" src="images/Dé-5.svg">
+                        </div>
+                        <div class="cube-face cube-face-6">
+                            <img class="img-face" src="images/Dé-6.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="rollBtn">Lancer</button>
+                    <button class="guard">Garder</button>
+                </div>
+            </div>
+
+            <div class="player player-2">
+                <h3 class="player-name" id="name-player-2">Joueur 2</h3>
+                <div class="score">
+                    <h4>Score globale</h4>
+                    <p class="player-global-score" id="player-2-global-score">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="player-winner">
+            <button class="btn-reset-game" alt="Nouvelle partie">
+                <i class="fas fa-redo-alt"></i>
+                <p>Nouvelle partie</p>
+            </button>
+            <h2 class="winner-name"></h2>
+        </div>
+    </main>
+    <footer>
+        <span id="credits">Crédits</span>
+        <div id="details" style="height: 0px;">
+            <span> Merci au groupe discord de m'aider dans les cours</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

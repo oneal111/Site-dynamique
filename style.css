@@ -1,0 +1,619 @@
+/* ===============   GÃ‰NÃ‰RAL   ================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 5px;
+    background-color: #d5ecec;
+}
+
+
+/* ==============   HEADER   ================= */
+
+header {
+    width: 100%;
+    height: 130px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-family: 'Radio Canada', cursive;
+    color: #293241;
+}
+
+header .btns {
+    margin-top: 5px;
+    padding: 15px;
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .btns button {
+    border: none;
+    outline: none;
+    background-color: #293241;
+    color:#d5ecec;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+header .btns button:hover {
+    transform: scale(0.8);
+}
+
+header .btns button i {
+    pointer-events: none;
+    font-size: 1.3rem;
+}
+
+header .btns button p {
+    pointer-events: none;
+    font-size: 1.3rem;
+    display: none;
+}
+
+#mute {
+    display: block;
+}
+
+#up {
+    display: none;
+}
+
+
+
+/* ==============   MAIN   ============= */
+
+main {
+    width: 100%;
+    min-height: 550px;
+    padding: 0 30px 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ==============  PrÃ©sentation des joueurs  ============= */
+
+.form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 7%, rgba(0,212,255,1) 100%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    display: inline-flex;
+}
+
+.form-container h2 {
+    font-size: 2rem;
+    font-family: 'Radio Canada', cursive;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+form#name-choice {
+    max-width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color: #293241;
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+
+form#name-choice label {
+    margin: 5px;
+}
+
+form#name-choice input {
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: transparent;
+    border-radius: 8px;
+    color: #293241;
+}
+
+form#name-choice button {
+    margin-top: 15px;
+    border: none;
+    outline: none;
+    background-color: #293241;
+    color:#d5ecec;
+    padding: 7px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+form#name-choice button {
+    display: none;
+}
+
+form#name-choice button:hover {
+    transform: scale(0.8);
+}
+
+
+/* ==============   Gestion des parties histoire et rÃ¨gles du jeu   ============= */
+
+.story-container,
+.rules-container {
+    z-index: 15;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story,.rules {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    
+    color: #293241;
+}
+
+.story img,
+.rules img {
+    height: 80px;
+    margin-bottom: 25px;
+}
+
+.story p,
+.rules p {
+    margin: 25px;
+    width: auto;
+    height: auto;
+    text-align: justify;
+}
+
+.story button,
+.rules button {
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.story button i,
+.rules button i {
+    pointer-events: none;
+    font-size: 1.7rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.story button:hover i,
+.rules button:hover i {
+    color: #EE6C4D;
+}
+
+.story-container {
+    display: none;
+}
+
+.rules-container {
+    display: none;
+}
+
+
+
+
+
+.game-board {
+    min-width: 300px;
+    min-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #293241;
+}
+
+.game-board {
+    display: none;
+}
+
+/* ============   PLAYERS   =============== */
+
+.game-board .player {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-board .player-1 {
+    background-color: #d498d9;
+}
+
+.game-board .player-2 {
+    background-color: #ee6d4d;
+    color: #d5ecec;
+}
+
+.game-board .player .player-name {
+    font-weight: 700;
+}
+
+.game-board .action-game {
+    min-width: 150px;
+    min-height: 300px;
+    background-color: #8780df;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px 20px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.game-board .action-game .player-temp-score {
+    margin: 10px 0 50px;
+    font-size: 2rem;
+}
+
+.game-board .player .score {
+    text-align: center;
+}
+
+.game-board .player-2 .player-name {
+    display: flex;
+    order: 1;
+}
+
+.player-global-score {
+    font-size: 1.3rem;
+}
+
+
+/* ===========   CUBE   ============ */
+
+.cube {
+    width:200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    transition: transform 1s;
+}
+  
+.img-face {
+    width: 200px;
+    height: 200px;
+}
+  
+.cube.show-1    { transform: translateZ(-100px) rotateY(   0deg); }
+.cube.show-2    { transform: translateZ(-100px) rotateY(-180deg); }
+.cube.show-3    { transform: translateZ(-100px) rotateY( -90deg); }
+.cube.show-4    { transform: translateZ(-100px) rotateY(  90deg); }
+.cube.show-5    { transform: translateZ(-100px) rotateX( -90deg); }
+.cube.show-6    { transform: translateZ(-100px) rotateX(  90deg); }
+  
+.cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+  
+.cube-face-1  {background: black;}
+.cube-face-3  {background: black;}
+.cube-face-2  {background: black;}
+.cube-face-4  {background: black;}
+.cube-face-5   {background: black;}
+.cube-face-6 {background: black;}
+  
+.cube-face-1  {transform: rotateY(  0deg) translateZ(100px);}
+.cube-face-2   {transform: rotateY(180deg) translateZ(100px);}
+.cube-face-3  {transform: rotateY( 90deg) translateZ(100px);}
+.cube-face-4   {transform: rotateY(-90deg) translateZ(100px);}
+.cube-face-5   {transform: rotateX( 90deg) translateZ(100px);}
+.cube-face-6 {transform: rotateX(-90deg) translateZ(100px);}
+  
+label {margin-right: 10px;}
+
+
+
+
+/* ===========   BTN Game Board   ============= */
+
+.game-board .btn-group button {
+    margin-top: 15px;
+    border: none;
+    outline: none;
+    background-color: #293241;
+    color:#d5ecec;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-group {
+    width: 200px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+/* ===========   WINNER   ============= */
+
+.player-winner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    margin: 0;
+    background-color: #EE6C4D;
+    color: #d5ecec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    transition: all 1s ease-in-out;
+}
+ 
+.player-winner {
+    display: none;
+}
+
+.player-winner button {
+    border: none;
+    outline: none;
+    background-color: #293241;
+    color:#d5ecec;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    padding: 10px;
+    font-weight: 700;
+    top: 20px;
+    right: 20px
+}
+
+.player-winner button:hover {
+    transform: scale(0.8);
+}
+
+.player-winner button i {
+    pointer-events: none;
+    font-size: 1.3rem;
+}
+
+.player-winner button p {
+    pointer-events: none;
+    font-size: 1.3rem;
+    display: none;
+}
+
+.player-winner img {
+    min-width: 150px;
+    width: auto;
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.player-winner img#crown-1 {
+    display: none;
+}
+
+.player-winner img#crown-2 {
+    display: none;
+}
+
+
+/* ===========   FOOTER  ============= */
+
+footer {
+    width: 100%;
+    height: 80px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+footer span {
+    margin: 10px;
+    color: #293241;
+    font-weight: 400;
+}
+
+footer span#credits {
+    cursor: pointer;
+}
+
+footer #details {
+    height: 0;
+    padding: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+footer #details h5 {
+    font-size: 1rem;
+    color: #293241;
+    margin: 10px 0;
+}
+
+footer #details ul {
+    list-style: none;
+}
+
+footer #details ul li {
+    margin: 5px 0;
+}
+
+footer #details ul li a {
+    text-decoration: none;
+    color: #293241;
+    transition: all 0.3s ease-in-out;
+}
+
+footer #details ul li a:hover {
+    color: #EE6C4D;
+}
+
+
+
+/* ===========   Le responsive   ============= */
+
+@media screen and (min-width: 630px) {
+    main {
+        min-height: 450px;
+        padding-top: 10px;
+        margin-bottom: 15px;
+    }
+    
+    header .btns button {
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-weight: 700;
+    }
+    
+    header .btns button:last-child {
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    header .btns button i {
+        pointer-events: none;
+        font-size: 1.3rem;
+        display: none;
+    }
+
+    header .btns button i:last-child {
+        pointer-events: none;
+        font-size: 1.3rem;
+        display: block;
+    }
+    
+    header .btns button p {
+        pointer-events: none;
+        font-size: 1rem;
+        color: #d5ecec;
+        display: block;
+    }
+
+    .player-winner button {
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-weight: 700;
+    }
+
+    .player-winner button i {
+        pointer-events: none;
+        font-size: 1.3rem;
+        display: none;
+    }
+    
+    .player-winner button p {
+        pointer-events: none;
+        font-size: 1rem;
+        color: #d5ecec;
+        display: block;
+    }
+
+    .game-board {
+        min-width: 500px;
+        width: 100%;
+        max-width: 800px;
+        min-height: 400px;
+        flex-direction: row;
+    }
+
+    .game-board .player {
+        min-width: 130px;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game-board .player .player-name {
+        margin-bottom: 40px;
+    }
+
+    .game-board .player-2 .player-name {
+        order: -1;
+    }
+
+    .game-board .action-game {
+        min-width: 300px;
+        min-height: 300px;
+        background-color: #98C1D9;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 10px 20px 10px;
+    }
+}
